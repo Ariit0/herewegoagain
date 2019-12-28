@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour {
     [SerializeField] private float turnSmoothTime = 0.02f;
     private float turnSmoothVelocity;
 
-    [SerializeField] private float speedSmoothTime = 0.1f;
+    [SerializeField] private float speedSmoothTime = 0.05f;
     private float speedSmoothVelocity;
 
     private float currentSpeed;
