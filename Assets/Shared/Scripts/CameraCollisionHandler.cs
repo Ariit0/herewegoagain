@@ -6,9 +6,8 @@ public class CameraCollisionHandler: MonoBehaviour {
 
     // all the objects that the camera can collide with
     public LayerMask collisionLayer;
-
     [HideInInspector] public Vector3[] desiredCameraClipPoints;
-
+    [SerializeField] private float rayMaxDistance = 3.5f;
     private Camera m_camera;
     private float cameraPadding = 3.41f;
 
@@ -55,7 +54,7 @@ public class CameraCollisionHandler: MonoBehaviour {
             Ray ray = new Ray(from, desiredCameraClipPoints[i] - from);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit)) {
+            if (Physics.Raycast(ray, out hit, rayMaxDistance, collisionLayer)) { 
                 if (distance == -1) {
                     distance = hit.distance;
                 } else {
